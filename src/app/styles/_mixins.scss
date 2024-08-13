@@ -1,0 +1,15 @@
+@mixin header-container {
+  width: 1200px;
+  margin: 0 auto;
+  // padding: 0 15px;
+}
+@mixin container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+@mixin flex-center($x, $y) {
+  display: flex;
+  justify-content: $x;
+  align-items: $y;
+}

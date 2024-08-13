@@ -1,5 +1,6 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import "@/app/styles/main.scss";
 
 export default function FlashCards({ Component, pageProps }: AppProps) {
   return (
