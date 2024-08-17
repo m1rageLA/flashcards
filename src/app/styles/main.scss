@@ -3,6 +3,7 @@
 @import "layout";
 @import "./coomon/header";
 @import "./coomon/main";
+@import "./components/item.scss";
 
 @font-face {
   font-family: "Montserrat";
@@ -17,8 +18,19 @@ body {
 
 }
 
-h3 {
+h2 {
     font-family: "Montserrat", sans-serif;
     font-weight: 600;
-    font-size: 25px;
+    font-size: 24px;
+}
+h3 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 17px;
+}
+
+p {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
 }

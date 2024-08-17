@@ -1,18 +1,21 @@
 import React, { useEffect } from "react";
 import Header from "@/app/components/Header";
+import TopicsItem from "@/app/components/TopicsItem";
+import MyDecsItem from "@/app/components/MyDecsItem";
 
-interface Post {
+interface Item {
   id: number;
-  title: string;
+  name: string;
 }
 
 interface HomeProps {
-  posts: Post[];
+  posts: Item[];
 }
+
 export async function getServerSideProps() {
   try {
     const response = await fetch("https://jsonplaceholder.typicode.com/users");
-    const data: Post[] = await response.json();
+    const data: Item[] = await response.json();
     console.log(data);
     return { props: { posts: data } };
   } catch (error) {
@@ -20,16 +23,31 @@ export async function getServerSideProps() {
     return { props: { posts: [] } };
   }
 }
+
 const Home: React.FC<HomeProps> = ({ posts }) => {
   return (
     <>
-      <Header></Header>
+      <Header />
       <main className="main">
         <div className="main__decs">
-          <h3 className="main__subtitle">My decs</h3>
+          <div className="container">
+            <h2 className="main__subtitle">My decs</h2>
+            <div className="main__decs-block">
+              {posts.map((item) => {
+                return <MyDecsItem key={item.id} item={item} />;
+              })}
+            </div>
+          </div>
         </div>
         <div className="main__topics">
-          <h3 className="main__subtitle">All topics</h3>
+          <div className="container">
+            <h2 className="main__subtitle">All topics</h2>
+            <div className="main__topics-block">
+              {posts.map((item) => {
+                return <TopicsItem key={item.id} item={item} />;
+              })}
+            </div>
+          </div>
         </div>
       </main>
       {console.log(posts)}

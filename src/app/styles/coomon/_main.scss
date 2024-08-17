@@ -3,24 +3,40 @@
   height: 100%;
 
   &__decs {
-    padding-top: 30px;
+    padding-top: $top;
     min-height: 250px;
-    * {
+    padding: 10px 0 60px 0;
+    .container {
       @include container;
+    }
+
+    &-block {
+      width: 100%;
+      margin-top: $top;
+      display: flex;
+      gap: 15px 1%;
+      flex-wrap: wrap;
     }
   }
 
   &__topics {
     min-height: 300px;
-    background-color: rgb(237, 249, 255);
-
-    * {
+    background-color: rgb(249, 249, 255);
+    padding: 10px 0 60px 0;
+    .container {
       @include container;
+    }
+
+    &-block {
+      width: 100%;
+      margin-top: $top;
+      display: flex;
+      gap: 15px 1%;
+      flex-wrap: wrap;
     }
   }
 
   &__subtitle {
     padding-top: 30px;
-
   }
 }
