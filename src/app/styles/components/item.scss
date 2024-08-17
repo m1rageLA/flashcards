@@ -28,7 +28,61 @@
     margin-top: 5px;
     color: rgb(98, 98, 98);
   }
+
   &--decs {
     background-color: rgb(249, 249, 255);
   }
+}
+
+.progress-bar {
+  width: 50px;
+  height: 50px;
+  margin-left: auto;
+  margin-right: 10px;
+  @include flex-center(center, center);
+
+  &__circle-white {
+    @include flex-center(center, center);
+    width: 78%;
+    height: 78%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    z-index: 8;
+  }
+
+  &__circle {
+    @include flex-center(center, center);
+    width: 100%;
+    height: 100%;
+    background: conic-gradient(rgb(96, 221, 167) 0deg, rgb(246, 246, 246) 0deg);
+    border-radius: 100%;
+    z-index: 10;
+  }
+  
+  @keyframes circleAnimation {
+    0% {
+      background: conic-gradient(rgb(96, 221, 167) 0deg, rgb(246, 246, 246) 0deg);
+    }
+    100% {
+      background: conic-gradient(rgb(96, 221, 167) 288deg, rgb(246, 246, 246) 288deg);
+    }
+  }
+  
+  &__text-block{
+    @include flex-center(center, center);
+    flex-direction: column;
+
+    h3 {
+        margin: 0;
+        font-size: 12px;
+        font-weight: 700;
+  
+    }
+    p {
+        margin-top: 5px;
+        padding: 0;
+        font-size: 9px;
+        font-weight: 500;
+    }
+}
 }
