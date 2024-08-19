@@ -23,9 +23,9 @@ const MyDecsItem: React.FC<TopicsItemProps> = ({ item }) => {
       />
       <div>
         <h3>{item.name}</h3>
-        <p>26 entries</p>
+        <p>26 entries • EN → RU</p>
       </div>
-      <ProgressBar value={50}/>
+      <ProgressBar value={100}/>
     </div>
   );
 };

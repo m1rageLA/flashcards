@@ -18,13 +18,17 @@
     cursor: pointer;
   }
 
-  h3,
-  p {
+  h3 {
+    font-size: 90%;
     margin: 0;
     padding: 0;
   }
+  p {
+  }
 
   p {
+    margin: 0;
+    padding: 0;
     margin-top: 5px;
     color: rgb(98, 98, 98);
   }
@@ -58,31 +62,36 @@
     border-radius: 100%;
     z-index: 10;
   }
-  
+
   @keyframes circleAnimation {
     0% {
-      background: conic-gradient(rgb(96, 221, 167) 0deg, rgb(246, 246, 246) 0deg);
+      background: conic-gradient(
+        rgb(96, 221, 167) 0deg,
+        rgb(246, 246, 246) 0deg
+      );
     }
     100% {
-      background: conic-gradient(rgb(96, 221, 167) 288deg, rgb(246, 246, 246) 288deg);
+      background: conic-gradient(
+        rgb(96, 221, 167) 288deg,
+        rgb(246, 246, 246) 288deg
+      );
     }
   }
-  
-  &__text-block{
+
+  &__text-block {
     @include flex-center(center, center);
     flex-direction: column;
 
     h3 {
-        margin: 0;
-        font-size: 12px;
-        font-weight: 700;
-  
+      margin: 0;
+      font-size: 12px;
+      font-weight: 700;
     }
     p {
-        margin-top: 5px;
-        padding: 0;
-        font-size: 9px;
-        font-weight: 500;
+      margin-top: 5px;
+      padding: 0;
+      font-size: 9px;
+      font-weight: 500;
     }
-}
+  }
 }

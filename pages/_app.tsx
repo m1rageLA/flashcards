@@ -1,6 +1,8 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import "@/app/styles/main.scss";
+import { Provider } from "react-redux";
+import store from "@/app/redux/store";
 
 export default function FlashCards({ Component, pageProps }: AppProps) {
   return (
@@ -10,7 +12,9 @@ export default function FlashCards({ Component, pageProps }: AppProps) {
         <meta name="description" content="A description of my app" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <Component {...pageProps} />
+      <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
     </>
   );
 }
