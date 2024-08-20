@@ -1,10 +1,6 @@
 import React from "react";
 import Image from "next/image";
-
-interface Item {
-  id: number;
-  name: string;
-}
+import { Item } from "@/types";
 
 interface TopicsItemProps {
   item: Item;
@@ -21,8 +17,8 @@ const TopicsItem: React.FC<TopicsItemProps> = ({ item }) => {
         alt="Deck element"
       />
       <div>
-        <h3>{item.name}</h3>
-        <p>26 entries</p>
+        <h3>{item.title}</h3>
+        <p>{} entries</p>
       </div>
 
     </div>

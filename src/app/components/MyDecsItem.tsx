@@ -1,11 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import ProgressBar from "./ProgressBar";
-
-interface Item {
-  id: number;
-  name: string;
-}
+import { Item } from "@/types";
 
 interface TopicsItemProps {
   item: Item;
@@ -22,10 +18,10 @@ const MyDecsItem: React.FC<TopicsItemProps> = ({ item }) => {
         alt="Deck element"
       />
       <div>
-        <h3>{item.name}</h3>
-        <p>26 entries • EN → RU</p>
+        <h3>{item.title}</h3>
+        <p>{item.length} entries • {item.language}</p>
       </div>
-      <ProgressBar value={100}/>
+      <ProgressBar value={item.progress}/>
     </div>
   );
 };

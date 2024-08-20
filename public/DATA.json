@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "title": "Essential Vocabulary",
+    "progress": 56,
+    "level": "B1",
+    "language": "en->ru",
+    "length": 32
+  },
+  {
+    "id": 2,
+    "title": "Daily Expressions",
+    "progress": 82,
+    "level": "B1",
+    "language": "en->ru",
+    "length": 48
+  },
+  {
+    "id": 3,
+    "title": "Travel Phrases",
+    "progress": 34,
+    "level": "B1",
+    "language": "en->ru",
+    "length": 12
+  },
+  {
+    "id": 4,
+    "title": "Business English",
+    "progress": 91,
+    "level": "B1",
+    "language": "en->ru",
+    "length": 41
+  },
+  {
+    "id": 5,
+    "title": "Common Verbs",
+    "progress": 47,
+    "level": "B1",
+    "language": "en->ru",
+    "length": 27
+  },
+  {
+    "id": 6,
+    "title": "Idioms and Slang",
+    "progress": 69,
+    "level": "B1",
+    "language": "en->ru",
+    "length": 54
+  },
+  {
+    "id": 7,
+    "title": "Advanced Adjectives",
+    "progress": 22,
+    "level": "B1",
+    "language": "en->ru",
+    "length": 18
+  },
+  {
+    "id": 8,
+    "title": "Phrasal Verbs",
+    "progress": 78,
+    "level": "B1",
+    "language": "en->ru",
+    "length": 39
+  },
+  {
+    "id": 9,
+    "title": "Conversational Phrases",
+    "progress": 50,
+    "level": "B1",
+    "language": "en->ru",
+    "length": 25
+  },
+  {
+    "id": 10,
+    "title": "Shopping Vocabulary",
+    "progress": 61,
+    "level": "B1",
+    "language": "en->ru",
+    "length": 30
+  },
+  {
+    "id": 11,
+    "title": "Job Interview Prep",
+    "progress": 85,
+    "level": "B1",
+    "language": "en->ru",
+    "length": 45
+  },
+  {
+    "id": 12,
+    "title": "Social Media English",
+    "progress": 44,
+    "level": "B1",
+    "language": "en->ru",
+    "length": 10
+  }
+]

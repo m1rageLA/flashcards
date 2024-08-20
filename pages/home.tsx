@@ -5,12 +5,7 @@ import MyDecsItem from "@/app/components/MyDecsItem";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/app/redux/store";
 import { increment, decrement } from "@/app/redux/features/someFeature";
-
-
-interface Item {
-  id: number;
-  name: string;
-}
+import { Item } from "@/types";
 
 interface HomeProps {
   posts: Item[];
@@ -18,7 +13,7 @@ interface HomeProps {
 
 export async function getServerSideProps() {
   try {
-    const response = await fetch("https://jsonplaceholder.typicode.com/users");
+    const response = await fetch("http://localhost:3000/DATA.json");
     const data: Item[] = await response.json();
     console.log(data);
     return { props: { posts: data } };
@@ -43,8 +38,9 @@ const Home: React.FC<HomeProps> = ({ posts }) => {
         <div className="main__decs">
           <div className="container">
             <h2 className="main__subtitle">
-              My decs <span>({5})</span>
+              My decs <span>({posts.length})</span>
             </h2>
+            <h3>Level A1</h3>
             <div className="main__decs-block">
               {posts.map((item) => {
                 return <MyDecsItem key={item.id} item={item} />;
@@ -55,7 +51,7 @@ const Home: React.FC<HomeProps> = ({ posts }) => {
         <div className="main__topics">
           <div className="container">
             <h2 className="main__subtitle">
-              All topics <span>({5})</span>
+              All topics <span>({posts.length})</span>
             </h2>
             <div className="main__topics-block">
               {posts.map((item) => {
