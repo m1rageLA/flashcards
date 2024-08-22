@@ -12,3 +12,7 @@
   justify-content: $x;
   align-items: $y;
 }
+@mixin indentsZero {
+  padding: 0;
+  margin: 0;
+}

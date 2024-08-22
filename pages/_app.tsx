@@ -4,7 +4,7 @@ import "@/app/styles/main.scss";
 import { Provider } from "react-redux";
 import store from "@/app/redux/store";
 
-export default function FlashCards({ Component, pageProps }: AppProps) {
+function FlashCards({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
@@ -18,5 +18,7 @@ export default function FlashCards({ Component, pageProps }: AppProps) {
     </>
   );
 }
+
+export default FlashCards;
 
 // Ctrl + U - проверка SSR или meta

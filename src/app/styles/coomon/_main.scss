@@ -37,6 +37,7 @@
   }
 
   &__subtitle {
+    @include indentsZero;
     padding-top: 30px;
 
     span {
@@ -44,4 +45,14 @@
       color: rgb(155, 155, 155);
     }
   }
+  &__subtitle-level {
+    @include indentsZero;
+    margin-top: 10px;
+    color: rgb(114, 114, 114);
+
+    span {
+      color: rgb(64, 64, 64);
+    }
+  }
+
 }

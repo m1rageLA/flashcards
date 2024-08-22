@@ -18,7 +18,7 @@ const TopicsItem: React.FC<TopicsItemProps> = ({ item }) => {
       />
       <div>
         <h3>{item.title}</h3>
-        <p>{} entries</p>
+        <p>{item.length} entries</p>
       </div>
 
     </div>
