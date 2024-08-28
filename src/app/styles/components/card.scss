@@ -1,0 +1,58 @@
+.card {
+  width: 800px;
+  height: 450px;
+  perspective: 1000px; /* создаем эффект глубины */
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.3s; /* анимация переворота */
+  transform-style: preserve-3d; /* сохраняем 3D-эффект при перевороте */
+}
+
+.flipped .card-inner {
+  transform: rotateX(180deg); /* переворот на 180 градусов */
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* скрываем заднюю сторону */
+  @include flex-center(center, start);
+  font-size: 24px;
+  border-radius: 12px;
+}
+
+@mixin card-front__header {
+  @include flex-center(end, center);
+  width: 100%;
+  // background-color: red;
+  padding: 25px 40px;
+}
+
+.card-front {
+  background-color: #ffffff;
+  @include box-shadow(0.22);
+  color: black;
+
+  header {
+    @include card-front__header;
+  }
+}
+
+.card-back {
+  background-color: #ffffff;
+  @include box-shadow(0.22);
+  color: rgb(0, 0, 0);
+  transform: rotateX(
+    180deg
+  ); /* поворачиваем заднюю сторону сразу на 180 градусов */
+  
+  header {
+    @include card-front__header;
+  }
+}
