@@ -7,6 +7,6 @@ export interface Item {
   length: number;
 }
 export interface Deck {
-  id: string;
+  id: number;
   title: string ;
 }

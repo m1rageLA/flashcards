@@ -1,9 +1,13 @@
 // pages/decks/[id].tsx
 import { GetStaticProps, GetStaticPaths, GetStaticPropsContext } from "next";
 import { Deck } from "@/types";
-import { getStaticDeckById } from "../../lib/decks";
+import { getStaticDeckById, getStaticAllDecks } from "../../lib/decks";
 import Card from "@/app/components/Card";
 import Image from "next/image";
+import { useSelector } from "react-redux";
+import { RootState } from "@/app/redux/store";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 interface DeckPageProps {
   deck: Deck;
@@ -11,7 +15,8 @@ interface DeckPageProps {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   // Fetch all possible deck IDs or paths
-  const decks = await getStaticDeckById(""); // Replace with actual logic to fetch decks
+  const decks = await getStaticAllDecks(); // Убедитесь, что возвращаемое значение – это массив
+  // Если getStaticAllDecks возвращает массив объектов Deck
   const paths = decks.map((deck: Deck) => ({
     params: { id: deck.id.toString() }, // Ensure id is treated as a string
   }));
@@ -19,28 +24,53 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: false };
 };
 
+
 export const getStaticProps: GetStaticProps<DeckPageProps> = async (
   context: GetStaticPropsContext
 ) => {
-  const { id } = context.params!;
-  const deck = await getStaticDeckById(id as string); // Cast id to string
+  const idString = context.params?.id as string;
+  const id = Number(idString);
+  const deck = await getStaticDeckById(id); 
 
   return { props: { deck } };
 };
 
-function rotate() {}
-
 export default function DeckPage({ deck }: DeckPageProps) {
+  const { data } = useSelector((state: RootState) => state.decs);
+  const [item, setItem] = useState<Deck | null>(null);
+  const router = useRouter(); // Используем useRouter для программной навигации
+
+  useEffect(() => {
+    if (Array.isArray(data) && data.length > 5) {
+      const index = deck.id;
+      if (index >= 0 && index < data.length) {
+        setItem(data[index - 1]);
+      } else {
+        setItem(null);
+      }
+    }
+  }, [data, deck.id]);
+
+  // Обработчик для кнопки "Close"
+  const handleClose = () => {
+    router.push("/decks/");
+  };
+
+  if (!item) {
+    return <div>Loading...</div>; // Обработка загрузки
+  }
+
   return (
     <div className="deck-page">
       <header className="header">
-        <div className="header__type"><h2>LOGO</h2></div>
-        <div className="header__info">
-          <h3>3 / 20</h3>
-          <h3>Quizlet I. A. Meeting people</h3>
+        <div className="header__type">
+          <h2>LOGO</h2>
         </div>
-        <div className="header__close">
-          <Image src={"/close.png"} alt="" width={100} height={100}></Image>
+        <div className="header__info">
+          <h3>{item.title}</h3>
+        </div>
+        <div className="header__close" onClick={handleClose}>
+          <Image src="/close.png" alt="Close" width={100} height={100} />
         </div>
       </header>
       <div className="decks">

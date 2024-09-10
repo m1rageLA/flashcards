@@ -22,16 +22,20 @@
   width: 100%;
   height: 100%;
   backface-visibility: hidden; /* скрываем заднюю сторону */
-  @include flex-center(center, start);
+  @include flex-center(start, center);
+  flex-direction: column;
   font-size: 24px;
   border-radius: 12px;
 }
 
 @mixin card-front__header {
+  position: absolute;
   @include flex-center(end, center);
   width: 100%;
-  // background-color: red;
-  padding: 25px 40px;
+
+  a {
+    padding: 30px 30px;
+  }
 }
 
 .card-front {
@@ -42,6 +46,12 @@
   header {
     @include card-front__header;
   }
+
+  main {
+    width: 100%;
+    height: 100%;
+    @include flex-center(center, center);
+  }
 }
 
 .card-back {
@@ -51,8 +61,14 @@
   transform: rotateX(
     180deg
   ); /* поворачиваем заднюю сторону сразу на 180 градусов */
-  
+
   header {
     @include card-front__header;
+  }
+
+  main {
+    width: 100%;
+    height: 100%;
+    @include flex-center(center, center);
   }
 }
